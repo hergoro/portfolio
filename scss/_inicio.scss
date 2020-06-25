@@ -1,0 +1,28 @@
+#body__inicio {
+    overflow: hidden;
+}
+
+.principal__perfil {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../img/perfil1b.png);
+    background-size: 55%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position-y: bottom;
+    background-position-x: right;
+}
+
+.principal__presentacion {
+    position: absolute;
+    width: 40vw;
+    top: 30vh;
+    left: 5vw;
+    h1 {
+        font-weight: 700;
+        font-size: 10vh;
+    }
+    h4 {
+        font-weight: 400;
+    }
+}

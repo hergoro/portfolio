@@ -1,0 +1,19 @@
+.menu__general {
+    width: fit-content;
+    float: right;
+    margin-right: 4vw;
+    margin-top: 1.5vh;
+    ul {
+        list-style: none;
+        display: flex;
+        width: fit-content;
+        align-items: center;
+        justify-content: space-between;
+        overflow-x: hidden;
+        li {
+            padding: 1vw;
+            font-weight: 500;
+            font-style: italic;
+        }
+    }
+}
