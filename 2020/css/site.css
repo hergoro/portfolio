@@ -1,0 +1,15 @@
+:root {
+  --bg: #fafafa;
+  --font: "MuseoModerno", cursive;
+  --font-display: "MuseoModerno", cursive;
+  --hotpink: #f2f2f2;
+  --orange: #8798e0;
+  --gradient: linear-gradient(35deg, var(--orange), var(--hotpink));
+}
+
+body {
+  margin: auto;
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: var(--font);
+}
