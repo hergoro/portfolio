@@ -11,6 +11,9 @@ a {
   text-decoration: none;
   color: #404040; }
 
+.menu__check {
+  display: none; }
+
 .loading-screen {
   position: relative;
   padding-left: 0;
@@ -18,7 +21,8 @@ a {
   padding-top: 0;
   background-color: #728f7a;
   width: 0%;
-  height: 100%; }
+  height: 100%;
+  z-index: 1000; }
 
 .load-container {
   position: fixed;
@@ -27,8 +31,36 @@ a {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  z-index: 10;
+  z-index: 1000;
   pointer-events: none; }
+
+nav {
+  position: fixed;
+  width: 100%;
+  line-height: 60px;
+  z-index: 1000;
+  top: 0; }
+
+.menu__lista {
+  line-height: 60px;
+  list-style: none;
+  background: #fff;
+  overflow: hidden;
+  color: #000;
+  padding: 0;
+  text-align: right;
+  margin: 0;
+  padding-right: 40px;
+  transition: 1s; }
+
+nav ul li {
+  display: inline-block;
+  padding: 16px 40px; }
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px; }
 
 #body__inicio {
   overflow: hidden; }
@@ -54,22 +86,9 @@ a {
   .principal__presentacion h4 {
     font-weight: 400; }
 
-.menu__general {
-  width: fit-content;
-  float: right;
-  margin-right: 4vw;
-  margin-top: 1.5vh; }
-  .menu__general ul {
-    list-style: none;
-    display: flex;
-    width: fit-content;
-    align-items: center;
-    justify-content: space-between;
-    overflow-x: hidden; }
-    .menu__general ul li {
-      padding: 1vw;
-      font-weight: 500;
-      font-style: italic; }
+html {
+  height: 100%;
+  display: unset; }
 
 .presentacion {
   position: absolute;
@@ -86,6 +105,7 @@ a {
 
 .portfolio__contenedor {
   position: absolute;
+  height: fit-content;
   display: grid;
   left: 2%;
   right: 2%;
@@ -143,6 +163,9 @@ a {
     text-align: justify;
     font-weight: 300; }
 
+.contacto {
+  margin-top: 3vh; }
+
 .contacto__formulario {
   display: flex;
   height: 90vh;
@@ -150,7 +173,7 @@ a {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  margin: 0 auto; }
+  margin: 13vh auto 0; }
   .contacto__formulario .formulario {
     width: 70%;
     min-width: 300px;
@@ -188,3 +211,145 @@ textarea.form-text {
   .form-btn:hover {
     /* background: #2980b9; */
     box-shadow: 0 0 20px #474747; }
+
+@media (max-width: 420px) {
+  /* Estilos de menu hamburguesa */
+  html {
+    overflow-y: scroll; }
+  .menu-contenedor {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 100%;
+    box-sizing: content-box; }
+    .menu-contenedor .menu__check {
+      position: absolute;
+      display: inline-block;
+      top: 0;
+      right: 0;
+      z-index: 2;
+      cursor: pointer;
+      width: 70px;
+      height: 50px;
+      opacity: 0; }
+    .menu-contenedor .hamburger {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      width: 70px;
+      height: 50px;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+  /* Hamburger Lineas */
+  .menu-contenedor .hamburger > div {
+    position: relative;
+    flex: none;
+    width: 100%;
+    height: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75); }
+  /* Hamburger Lineas - Top & Bottom */
+  .menu-contenedor .hamburger > div::before,
+  .menu-contenedor .hamburger > div::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    width: 100%;
+    height: 2px;
+    background: inherit;
+    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75); }
+  /* Linea medio */
+  .menu-contenedor .hamburger > div::after {
+    top: 10px; }
+  /* Mostrar Menu */
+  .menu-contenedor .menu__check:checked ~ .menu {
+    visibility: visible; }
+  .menu-contenedor .menu__check:checked ~ .menu > div {
+    transform: scale(1);
+    transition-duration: 0.5s; }
+  .menu-contenedor .menu__check:checked ~ .menu > div > div {
+    opacity: 1;
+    transition: opacity 0.4s ease 0.4s; }
+  .menu-contenedor .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .menu-contenedor .menu > div {
+    background: #fff;
+    width: 200vw;
+    height: 200vw;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: all 0.4s ease; }
+  .menu-contenedor .menu > div > div {
+    text-align: center;
+    max-width: 90vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.4s ease; }
+  .menu__lista {
+    width: 80vw;
+    padding: 50px 5px 50px 50px;
+    background: rgba(255, 255, 255, 0.603); }
+    .menu__lista li {
+      font-weight: 700;
+      padding: 0; }
+  .menu-contenedor .menu > div > div > ul > li {
+    display: block;
+    list-style: none;
+    color: black;
+    font-size: 1.5rem;
+    padding: 1rem;
+    text-shadow: 0 0 20px #fff0bd; }
+  .menu-contenedor .menu > div > div > ul > li > a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.4s ease;
+    font-size: 5vw; }
+  .principal__perfil {
+    width: 100vw;
+    height: 100vh;
+    background-size: contain;
+    background-position-y: bottom; }
+  .principal__presentacion {
+    width: 90vw;
+    top: 12vh;
+    left: 2.5vw; }
+    .principal__presentacion h1 {
+      font-weight: 700;
+      font-size: 7vh; }
+    .principal__presentacion h4 {
+      font-weight: 400; }
+  .body__portfolio {
+    overflow-y: scroll; }
+  .portfolio__contenedor {
+    top: 60vw;
+    grid-template-columns: 1fr;
+    overflow-y: scroll;
+    height: fit-content; }
+  .portfolio__tp {
+    height: 200px;
+    width: 300px;
+    background-color: #202020;
+    border: solid 2px #424242;
+    overflow: hidden; }
+  .contacto__formulario {
+    transform: scale(0.9); } }

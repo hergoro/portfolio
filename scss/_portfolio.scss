@@ -1,5 +1,10 @@
 $animacion: all 0.5s;
 
+html {
+    height: 100%;
+    display: unset;
+}
+
 .presentacion {
     position: absolute;
     top: 15vh;
@@ -18,6 +23,7 @@ $animacion: all 0.5s;
 
 .portfolio__contenedor {
     position: absolute;
+    height: fit-content;
     display: grid;
     left: 2%;
     right: 2%;

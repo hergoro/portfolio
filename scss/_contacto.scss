@@ -1,3 +1,7 @@
+.contacto {
+    margin-top: 3vh;
+}
+
 .contacto__formulario {
     display: flex;
     height: 90vh;
@@ -5,7 +9,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    margin: 0 auto;
+    margin: 13vh auto 0;
     .formulario {
         width: 70%;
         min-width: 300px;
